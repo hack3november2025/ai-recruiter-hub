@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import Dashboard from "./pages/Dashboard";
 import JobGenerator from "./pages/JobGenerator";
+import JobDetails from "./pages/JobDetails";
 import CVEvaluation from "./pages/CVEvaluation";
 import CandidateSearch from "./pages/CandidateSearch";
 import NotFound from "./pages/NotFound";
@@ -22,6 +23,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/job-generator" element={<JobGenerator />} />
+            <Route path="/job/:id" element={<JobDetails />} />
             <Route path="/cv-evaluation" element={<CVEvaluation />} />
             <Route path="/candidate-search" element={<CandidateSearch />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

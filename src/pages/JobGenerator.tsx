@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/select";
 import { Sparkles, Copy, Download, RefreshCw } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "react-router-dom";
 
 const JobGenerator = () => {
   const { toast } = useToast();
@@ -194,6 +195,12 @@ Our company values diversity and is committed to creating an inclusive environme
                   </>
                 )}
               </Button>
+
+              <Link to="/job/1" className="block">
+                <Button variant="outline" size="lg" className="w-full gap-2 mt-3">
+                  View Example Job
+                </Button>
+              </Link>
             </div>
           </Card>
 
