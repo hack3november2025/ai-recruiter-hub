@@ -47,10 +47,10 @@ const Dashboard = () => {
   ];
 
   const recentActivities = [
-    { action: "CV evaluated", candidate: "Sarah Johnson", score: 92, time: "5 min ago" },
-    { action: "Job created", candidate: "Senior Frontend Engineer", score: null, time: "12 min ago" },
-    { action: "CV evaluated", candidate: "Michael Chen", score: 85, time: "23 min ago" },
-    { action: "Search completed", candidate: "React developers", score: null, time: "1 hour ago" },
+    { action: "CV evaluated", candidate: "Sarah Johnson", score: 92, time: "5 min ago", link: "/cv-evaluation" },
+    { action: "Job created", candidate: "Senior Frontend Engineer", score: null, time: "12 min ago", link: "/job/1" },
+    { action: "CV evaluated", candidate: "Michael Chen", score: 85, time: "23 min ago", link: "/cv-evaluation" },
+    { action: "Search completed", candidate: "React developers", score: null, time: "1 hour ago", link: "/candidate-search" },
   ];
 
   return (
@@ -111,23 +111,22 @@ const Dashboard = () => {
             </div>
             <div className="space-y-4">
               {recentActivities.map((activity, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-between p-4 rounded-lg hover:bg-muted/50 transition-colors"
-                >
-                  <div className="flex-1">
-                    <p className="font-medium text-foreground">{activity.candidate}</p>
-                    <p className="text-sm text-muted-foreground">{activity.action}</p>
-                  </div>
-                  {activity.score && (
-                    <div className="mr-4">
-                      <div className="px-3 py-1 rounded-full bg-success/10 text-success font-medium text-sm">
-                        {activity.score}% match
-                      </div>
+                <Link key={index} to={activity.link}>
+                  <div className="flex items-center justify-between p-4 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
+                    <div className="flex-1">
+                      <p className="font-medium text-foreground">{activity.candidate}</p>
+                      <p className="text-sm text-muted-foreground">{activity.action}</p>
                     </div>
-                  )}
-                  <span className="text-sm text-muted-foreground">{activity.time}</span>
-                </div>
+                    {activity.score && (
+                      <div className="mr-4">
+                        <div className="px-3 py-1 rounded-full bg-success/10 text-success font-medium text-sm">
+                          {activity.score}% match
+                        </div>
+                      </div>
+                    )}
+                    <span className="text-sm text-muted-foreground">{activity.time}</span>
+                  </div>
+                </Link>
               ))}
             </div>
           </Card>
